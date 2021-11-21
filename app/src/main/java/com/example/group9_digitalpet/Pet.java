@@ -16,6 +16,26 @@ class Pet
         happiness = Happiness;
         awayTime = AwayTime;
     }
+    public String getPetName()
+    {
+        return name;
+    }
+    public int getPetHunger()
+    {
+        return hunger;
+    }
+    public int getPetHealth()
+    {
+        return health;
+    }
+    public int getPetHappiness()
+    {
+        return happiness;
+    }
+    public int getAwayTime()
+    {
+        return awayTime;
+    }
 
     public void feedPet (int foodPoints)
     {

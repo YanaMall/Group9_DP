@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Group9_DigitalPet</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

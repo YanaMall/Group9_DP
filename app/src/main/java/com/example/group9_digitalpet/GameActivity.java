@@ -1,12 +1,13 @@
 package com.example.group9_digitalpet;
-import java.io.Serializable;
+import android.view.View;
 
-public class GameActivity implements Serializable
+public class GameActivity extends Pedometer
 {
     private Pet pet;
-    private int startTime;
-    private int endTime;
     private Pedometer pedometer;
+    private long startTime;
+    private long endTime;
+    public long timeElapsed;
 
     public GameActivity(Pet pet)
     {
@@ -29,13 +30,16 @@ public class GameActivity implements Serializable
         // Happiness and walking
     }
 
-    public void onStartButtonClicked()
+    public void onStartButtonClicked(View view)
     {
-
+        startTime = System.currentTimeMillis();
     }
 
-    public void onEndButtonClicked()
+    public void onEndButtonClicked(View view)
     {
-        pedometer.createLog();
+        endTime = System.currentTimeMillis();
+        timeElapsed = (endTime - startTime) / 1000;
+        createLog(timeElapsed);
+        pedometer.resetSteps();
     }
 }

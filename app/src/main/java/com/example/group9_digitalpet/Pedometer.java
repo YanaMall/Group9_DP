@@ -6,6 +6,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.time.LocalDate;
@@ -27,7 +28,7 @@ public class Pedometer extends AppCompatActivity implements SensorEventListener
         setContentView ( R.layout.activity_main );
         tv_steps = (TextView) findViewById ( R.id.tv_steps );
 
-        viewLog();
+        //viewLog(); A button to view previous logs?
         resetSteps();
 
         sensorManager = (SensorManager) getSystemService ( Context.SENSOR_SERVICE);
@@ -36,7 +37,6 @@ public class Pedometer extends AppCompatActivity implements SensorEventListener
     @Override
     protected void onResume()
     {
-        //A button to tap to start tracking walk?
         super.onResume ();
         running = true;
         Sensor stepSensor = sensorManager.getDefaultSensor ( sensor.TYPE_STEP_COUNTER );
@@ -79,19 +79,18 @@ public class Pedometer extends AppCompatActivity implements SensorEventListener
 
     public void resetSteps()
     {
-        //A button to press to stop tracking walk?
         tv_steps.setOnClickListener(Toast.makeText(this, "Ending walk session", Toast.LENGTH_SHORT).show());
-        previousTotalSteps =totalSteps; //updates the current total number of steps
+        /*What to do about this ^^^ line???*/
+        previousTotalSteps = totalSteps; //updates the current total number of steps
         tv_steps.setText(0);
-        createLog(); // creates and saves the record log
     }
 
-    public void createLog()
+    public void createLog(long elapsed)
     {
         int step = currentSteps;
-        int duration = 0; //Using a timer in onStartButtonClicked in GameActivity?
-        LocalDate currentDate = LocalDate.now();
-        //Distance traveled
+        long duration = elapsed;
+        LocalDate currentDate = LocalDate.of(2021, 11, 29);
+        /*var Distance; will this data be pulled from map activity?*/
     }
 
     public void viewLog()

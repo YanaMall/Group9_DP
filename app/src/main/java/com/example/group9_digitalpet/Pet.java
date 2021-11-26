@@ -142,4 +142,9 @@ class Pet
         }
         awayTime = time;
     }
+
+    public void petChoice()
+    {
+
+    }
 }

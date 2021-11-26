@@ -8,23 +8,28 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="225dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/petView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--android:onClick="" for both buttons-->
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="74dp"
         android:text="Start Walk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.891" />
 
     <Button
@@ -40,13 +45,26 @@
         app:layout_constraintVertical_bias="0.891" />
 
     <TextView
+        android:id="@+id/tv_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="#f7b4eac3"
         android:text="Current steps: "
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:id="@+id/tv_steps"
         android:textStyle="bold"
-        android:background="#f7b4eac3"/>
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/petView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="313dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/Shepard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

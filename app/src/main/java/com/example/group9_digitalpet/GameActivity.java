@@ -5,6 +5,7 @@ public class GameActivity extends Pedometer
 {
     private Pet pet;
     private Pedometer pedometer;
+    private Log log;
     private long startTime;
     private long endTime;
     public long timeElapsed;
@@ -39,7 +40,7 @@ public class GameActivity extends Pedometer
     {
         endTime = System.currentTimeMillis();
         timeElapsed = (endTime - startTime) / 1000;
-        createLog(timeElapsed);
+        Log newLog  = log.createLog(timeElapsed);
         pedometer.resetSteps();
     }
 }

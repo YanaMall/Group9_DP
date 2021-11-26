@@ -6,10 +6,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.time.LocalDate;
 
 public class Pedometer extends AppCompatActivity implements SensorEventListener
 {
@@ -79,22 +77,12 @@ public class Pedometer extends AppCompatActivity implements SensorEventListener
 
     public void resetSteps()
     {
-        tv_steps.setOnClickListener(Toast.makeText(this, "Ending walk session", Toast.LENGTH_SHORT).show());
-        /*What to do about this ^^^ line???*/
         previousTotalSteps = totalSteps; //updates the current total number of steps
         tv_steps.setText(0);
     }
 
-    public void createLog(long elapsed)
+    public int getCurrentSteps()
     {
-        int step = currentSteps;
-        long duration = elapsed;
-        LocalDate currentDate = LocalDate.of(2021, 11, 29);
-        /*var Distance; will this data be pulled from map activity?*/
-    }
-
-    public void viewLog()
-    {
-        //Need to find a way to recall saved logs
+        return currentSteps;
     }
 }

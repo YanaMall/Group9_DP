@@ -12,20 +12,24 @@ public class StoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_store);
     }
     private int HatPrice; // placeholder for the cost of the hat
+    private String Hat;
     private int PetPrice; // placeholder for the cost of the pet
     private int Currency; // this is the currency for the entire app
-    public StoreActivity(int petPrice, int hatPrice, int currency){
+
+    public StoreActivity(int petPrice, int hatPrice, int currency, String hat){
         PetPrice = petPrice;
         HatPrice = hatPrice;
+        Hat = hat;
         Currency = currency;
     }
 
     // class contains selection of items for user to buy.
-    public void item(){
-
+    public void item(Store store){
+        Hat = store.getAccessoryNameAcc();
+        HatPrice = store.getAccessoryCost();
     }
 
-    public void Purchase(){
+    public void Purchase() {
 
     }
 
@@ -45,6 +49,4 @@ public class StoreActivity extends AppCompatActivity {
     public void addCurrency(int amount){
         Currency += amount;
     }
-}
-
 }

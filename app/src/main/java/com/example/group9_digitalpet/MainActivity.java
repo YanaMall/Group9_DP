@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -20,7 +22,6 @@ public class MainActivity extends AppCompatActivity
     private Pet pet;
     private Pedometer pedometer;
     private Log log;
-
     int numOfWalks;
     Log[] logArray = new Log[numOfWalks];
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity
         name = findViewById(R.id.nameTextViewID);
         */
         handler.post(runnableCode);
-
+        EditText petName = (EditText)findViewById(R.id.petName);
         ImageView petView = (ImageView)findViewById(R.id.petView);
         ImageButton dog1 = (ImageButton)findViewById(R.id.imageButton);
         dog1.setOnClickListener(new View.OnClickListener() {
@@ -124,8 +125,19 @@ public class MainActivity extends AppCompatActivity
         });
 
         //Need to do the pet name and what happens when 'start game' button is pressed
+        Button startGame = (Button)findViewById(R.id.startGame);
+        startGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                // I added this I believe this should get the pet name from the user when they press
+                // The start game button, still need to change to main screen with the same button press
+                pet.setPetName(petName.toString());
+
+            }
+        });
     }
-}
+
 
     private Runnable runnableCode = new Runnable() {
         @Override
@@ -138,3 +150,4 @@ public class MainActivity extends AppCompatActivity
             }
         }
     };
+}

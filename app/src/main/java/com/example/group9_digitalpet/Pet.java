@@ -198,6 +198,10 @@ class Pet
         awayTime = time;*/
     }
 
+    public void setPetName(String petName){
+        name = petName;
+    }
+
     public void petChoice()
     {
 

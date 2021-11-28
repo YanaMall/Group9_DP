@@ -1,5 +1,4 @@
 package com.example.group9_digitalpet;
-import static java.lang.Math.abs;
 
 class Pet
 {
@@ -49,19 +48,6 @@ class Pet
     {
         if (foodPoints % 5 == 0 && foodPoints <= 15)
             updateHunger(foodPoints, true);
-
-        /*if(foodPoints == 5)
-        {
-            updateHunger(5, true);
-        }
-        else if(foodPoints == 10)
-        {
-            updateHunger(10, true);
-        }
-        else if(foodPoints == 15)
-        {
-            updateHunger(15, true);
-        }*/
     }
 
     public void updateHealth (int health2)
@@ -69,19 +55,6 @@ class Pet
         health += health2;
         health = Math.min(health, maxHealth);
         health = Math.max(health, 0);
-
-        /*if(health + health2 > 100)
-        {
-            health = 100;
-        }
-        else if(health + health2 <= 0)
-        {
-            health = 0;
-        }
-        else
-        {
-            health += health2;
-        }*/
     }
 
     public void updateHunger (int food, boolean fed)
@@ -99,25 +72,6 @@ class Pet
             happiness(5, false);
             updateHealth(5);
         }
-
-        /*if(hunger + food > 100)
-        {
-            hunger = 100;
-        }
-        else if(hunger + food <= 0)
-        {
-            hunger = 0;
-            updateHealth(food);
-        }
-        else
-        {
-            if(fed)
-            {
-                hunger += food;
-                happiness(5, false);
-                updateHealth(5);
-            }
-        }*/
     }
 
     public void customize ()
@@ -139,22 +93,6 @@ class Pet
             }
             happiness = 0;
         }
-
-        /*if(happiness + happy > 100)
-        {
-            happiness = 100;
-        }
-        else if(happiness + happy <= 0)
-        {
-            if(!happy2)
-            {
-                updateHealth(-(abs(happiness + happy)));
-            }
-        }
-        else
-        {
-            happiness += happy;
-        }*/
     }
 
     public void levelUp ()
@@ -188,22 +126,9 @@ class Pet
             happiness(statDecrease, false);
         }
         awayTime = time;
-
-        /*if((time - awayTime) / 900 > 0){
-            int hoursAway = (time - awayTime) / 900;
-            //updateHealth(-hoursAway, false);
-            updateHunger(-hoursAway, false);
-            happiness(-hoursAway, false);
-        }
-        awayTime = time;*/
     }
 
     public void setPetName(String petName){
         name = petName;
-    }
-
-    public void petChoice()
-    {
-
     }
 }

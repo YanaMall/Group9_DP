@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton2"
-        app:srcCompat="@drawable/Beagle" />
+        app:srcCompat="@drawable/beagle" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:srcCompat="@drawable/Bulldog" />
+        app:srcCompat="@drawable/bulldog" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:srcCompat="@drawable/Chihuahua" />
+        app:srcCompat="@drawable/chihuahua" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Chowchow" />
+        app:srcCompat="@drawable/chowchow" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Goldenretriever" />
+        app:srcCompat="@drawable/goldenretriever" />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -106,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton5"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Husky" />
+        app:srcCompat="@drawable/husky" />
 
     <ImageButton
         android:id="@+id/imageButton7"
@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButton9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton8"
-        app:srcCompat="@drawable/Poodle" />
+        app:srcCompat="@drawable/poodle" />
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageButton3"
         app:layout_constraintStart_toStartOf="@+id/imageButton7"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5"
-        app:srcCompat="@drawable/Samoyed" />
+        app:srcCompat="@drawable/samoyed" />
 
     <ImageButton
         android:id="@+id/imageButton9"
@@ -143,7 +143,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:srcCompat="@drawable/Shiba" />
+        app:srcCompat="@drawable/shiba" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

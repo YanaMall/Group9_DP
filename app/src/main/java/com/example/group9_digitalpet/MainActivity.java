@@ -132,7 +132,8 @@ public class MainActivity extends AppCompatActivity
             {
                 // I added this I believe this should get the pet name from the user when they press
                 // The start game button, still need to change to main screen with the same button press
-                pet.setPetName(petName.toString());
+                pet = new Pet(petName.toString(), 0, 100, 100, 100, 100, 100 , 0 , 1);
+                //pet.setPetName(petName.toString());
                 setContentView(R.layout.activity_main);
 
             }
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void run() {
             Log.d("Handlers", "Called on main thread");
-            pet.getPetHealth();// health -= 1
+            pet.decreasePetHealth();
             handler.postDelayed(runnableCode, 1000);
             if (pet.getPetHealth() <= 0) {
                 finish();

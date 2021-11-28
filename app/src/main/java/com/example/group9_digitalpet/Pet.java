@@ -43,6 +43,11 @@ class Pet
     {
         return awayTime;
     }
+    public int decreasePetHealth()
+    {
+        health -= 1;
+        return health;
+    }
 
     public void feedPet (int foodPoints)
     {

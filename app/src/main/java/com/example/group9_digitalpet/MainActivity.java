@@ -125,15 +125,14 @@ public class MainActivity extends AppCompatActivity
         });
 
         //Need to do the pet name and what happens when 'start game' button is pressed
-        Button startGame = (Button)findViewById(R.id.startGame);
-        startGame.setOnClickListener(new View.OnClickListener() {
+          Button startGame = (Button)findViewById(R.id.startGame);
+          startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 // I added this I believe this should get the pet name from the user when they press
                 // The start game button, still need to change to main screen with the same button press
-                pet = new Pet(petName.toString(), 0, 100, 100, 100, 100, 100 , 0 , 1);
-                //pet.setPetName(petName.toString());
+                pet = new Pet(String.valueOf(petName), 0, 100, 100, 100, 100, 100 , 0 , 1);
                 setContentView(R.layout.activity_main);
 
             }
@@ -145,11 +144,11 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void run() {
             Log.d("Handlers", "Called on main thread");
-            pet.decreasePetHealth();
+           // pet.decreasePetHealth();
             handler.postDelayed(runnableCode, 1000);
-            if (pet.getPetHealth() <= 0) {
-                finish();
-            }
+          //  if (pet.getPetHealth() <= 0) {
+           //     finish();
+            //}
         }
     };
 }

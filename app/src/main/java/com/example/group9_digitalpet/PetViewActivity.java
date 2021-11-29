@@ -33,12 +33,9 @@ public class PetViewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         handler.post(runnableCode);
-        EditText petName = (EditText)findViewById(R.id.petName);
         final ImageView petView = (ImageView) findViewById(R.id.petView);
 
-        // I added this I believe this should get the pet name from the user when they press
-        // The start game button, still need to change to main screen with the same button press
-        pet = new Pet(String.valueOf(petName), 0, 100, 100, 100, 100, 100);
+        pet = MainActivity.pet;
         petView.setImageResource(MainActivity.petChoice);
 
         Button shopButton = (Button)findViewById(R.id.shopButton);
@@ -46,8 +43,28 @@ public class PetViewActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(PetViewActivity.this, StoreActivity.class);
-                startActivity(intent);
+                Intent swapToShop = new Intent(PetViewActivity.this, StoreActivity.class);
+                startActivity(swapToShop);
+            }
+        });
+
+        //Button labeled 'schedule walk with friends' is pressed, move to new xml
+        Button friendWalk = (Button) findViewById(R.id.friendWalk);
+        friendWalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent swapToFW = new Intent(PetViewActivity.this, FriendWalk.class);
+                startActivity(swapToFW);
+            }
+        });
+
+        //Button labeled to view logs
+        Button viewLogs = (Button) findViewById(R.id.viewlogs);
+        viewLogs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent swapToLog = new Intent(PetViewActivity.this, LogActivity.class);
+                startActivity(swapToLog);
             }
         });
     }

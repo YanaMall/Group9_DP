@@ -6,7 +6,7 @@ public class GameActivity extends Pedometer
 {
     private Pet pet;
     private Pedometer pedometer;
-    private Log log;
+    private LogActivity log;
     private long startTime;
     private long endTime;
     public long timeElapsed;

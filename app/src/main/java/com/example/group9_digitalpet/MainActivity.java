@@ -131,36 +131,9 @@ public class MainActivity extends AppCompatActivity
                 // I added this I believe this should get the pet name from the user when they press
                 // The start game button, still need to change to main screen with the same button press
                 pet = new Pet(String.valueOf(petName), 0, 100, 50, 100, 100, 100);
-                setContentView(R.layout.activity_main);
-                petView[0] = (ImageView) findViewById(R.id.petView);
-                petView[0].setImageResource(petChoice);
                 store = new Store(100, 0, 0, 0);
-                Button shopButton = (Button) findViewById(R.id.shopButton);
-                shopButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, StoreActivity.class);
-                        startActivity(intent);
-                    }
-                });
-                //Button labeled 'schedule walk with friends' is pressed, move to new xml
-                Button friendWalk = (Button) findViewById(R.id.friendWalk);
-                friendWalk.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent2 = new Intent(MainActivity.this, FriendWalk.class);
-                        startActivity(intent2);
-                    }
-                });
-                //Button labeled to view logs
-                Button viewLogs = (Button) findViewById(R.id.viewlogs);
-                viewLogs.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent3 = new Intent(MainActivity.this, Log.class);
-                        startActivity(intent3);
-                    }
-                });
+                Intent startMain = new Intent(MainActivity.this, PetViewActivity.class);
+                startActivity(startMain);
             }
 
             private Runnable runnableCode = new Runnable() {

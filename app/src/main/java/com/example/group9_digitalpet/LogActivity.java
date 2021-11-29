@@ -3,13 +3,17 @@ package com.example.group9_digitalpet;
 import java.time.LocalDate;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
-public class Log extends AppCompatActivity
+public class LogActivity extends AppCompatActivity
 {
     private int logCount;
     Pedometer pedometer;
@@ -49,6 +53,16 @@ public class Log extends AppCompatActivity
 
         //Add row to table
         tableLayout.addView(tr);
+
+        Button logToMain = (Button)findViewById(R.id.logToMain);
+        logToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(LogActivity.this, PetViewActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void createLog(long elapsed)

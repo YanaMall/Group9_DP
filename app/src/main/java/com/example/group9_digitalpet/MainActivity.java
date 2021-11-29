@@ -1,6 +1,7 @@
 package com.example.group9_digitalpet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Vibrator;
 import androidx.appcompat.app.AppCompatActivity;
@@ -147,6 +148,15 @@ public class MainActivity extends AppCompatActivity
                 petView[0] = (ImageView)findViewById(R.id.petView);
                 petView[0].setImageResource(petChoice);
 
+                Button shopButton = (Button)findViewById(R.id.shopButton);
+                shopButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(MainActivity.this, StoreActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
 
         });

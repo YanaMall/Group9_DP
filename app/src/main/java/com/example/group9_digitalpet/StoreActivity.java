@@ -2,7 +2,10 @@ package com.example.group9_digitalpet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class StoreActivity extends AppCompatActivity {
 
@@ -10,8 +13,18 @@ public class StoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+
+        Button backToMain = (Button)findViewById(R.id.backToMain);
+        backToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(StoreActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
-    private int HatPrice; // placeholder for the cost of the hat
+    /*private int HatPrice; // placeholder for the cost of the hat
     private String Hat;
     private int PetPrice; // placeholder for the cost of the pet
     private int Currency; // this is the currency for the entire app
@@ -48,5 +61,5 @@ public class StoreActivity extends AppCompatActivity {
     // takes in a variable which is the amount of currency to be added
     public void addCurrency(int amount){
         Currency += amount;
-    }
+    }*/
 }

@@ -3,19 +3,15 @@ package com.example.group9_digitalpet;
 class Pet
 {
     private String name;
-    private int hunger;
-    private int maxHunger;
     private int health;
     private int maxHealth;
     private int happiness;
     private int maxHappiness;
     private int awayTime;
     private int level;
-    public Pet(String Name, int Hunger, int MaxHunger, int Health, int MaxHealth, int Happiness, int MaxHappiness, int AwayTime, int Level)
+    public Pet(String Name, int Health, int MaxHealth, int Happiness, int MaxHappiness, int AwayTime, int Level)
     {
         name = Name;
-        hunger = Hunger;
-        maxHunger = MaxHunger;
         health = Health;
         maxHealth = MaxHealth;
         happiness = Happiness;
@@ -73,25 +69,7 @@ class Pet
         }
     }
 
-    public void levelUp ()
-    {
-        // What will leveling up do?
-        level++;
-        // just suggestions as to what could happen, also level could influence the decrease in stats?
-        maxHealth += 50;
-        maxHunger += 50;
-        maxHappiness += 50;
-    }
 
-    public void viewInventory ()
-    {
-        // Closet for clothes/hats?
-    }
-
-    public void changePet ()
-    {
-        // Multiple pets? Switching current pet?
-    }
 
     public void updateAwayTime(int time)
     {

@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 // I added this I believe this should get the pet name from the user when they press
                 // The start game button, still need to change to main screen with the same button press
-                pet = new Pet(String.valueOf(petName), 0, 100, 50, 100, 100, 100, 0, 1);
+                pet = new Pet(String.valueOf(petName), 0, 100, 50, 100, 100, 100);
                 setContentView(R.layout.activity_main);
                 petView[0] = (ImageView) findViewById(R.id.petView);
                 petView[0].setImageResource(petChoice);

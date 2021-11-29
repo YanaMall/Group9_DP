@@ -44,8 +44,9 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(StoreActivity.this, PetViewActivity.class);
-                startActivity(i);
+                finish();
+                //Intent i = new Intent(StoreActivity.this, PetViewActivity.class);
+                //startActivity(i);
             }
         });
 

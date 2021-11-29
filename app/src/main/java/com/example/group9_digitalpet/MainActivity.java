@@ -1,21 +1,32 @@
 package com.example.group9_digitalpet;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {
+    private GameActivity gameactivity;
     private Pet pet;
-    static int petChoice;
+    private Pedometer pedometer;
+    private Log log;
+    int numOfWalks;
+    Log[] logArray = new Log[numOfWalks];
+    public static int petChoice;
+    //handler will allow for the "timer" to run and decrease health/happiness
     Handler handler = new Handler();
 
     @Override
@@ -125,25 +136,43 @@ public class MainActivity extends AppCompatActivity
         });
 
         //Need to do the pet name and what happens when 'start game' button is pressed
-        Button startGame = (Button)findViewById(R.id.startGame);
-        startGame.setOnClickListener(new View.OnClickListener() {
+          Button startGame = (Button)findViewById(R.id.startGame);
+          startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, PetViewActivity.class);
-                startActivity(intent);
+                // I added this I believe this should get the pet name from the user when they press
+                // The start game button, still need to change to main screen with the same button press
+                pet = new Pet(String.valueOf(petName), 0, 100, 100, 100, 100, 100 , 0 , 1);
+                setContentView(R.layout.activity_main);
+                petView[0] = (ImageView)findViewById(R.id.petView);
+                petView[0].setImageResource(petChoice);
+
+                Button shopButton = (Button)findViewById(R.id.shopButton);
+                shopButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(MainActivity.this, StoreActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
+
         });
+
+
     }
+
 
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
             Log.d("Handlers", "Called on main thread");
-            // pet.decreasePetHealth();
+           // pet.decreasePetHealth();
             handler.postDelayed(runnableCode, 1000);
-            //  if (pet.getPetHealth() <= 0) {
-            //     finish();
+          //  if (pet.getPetHealth() <= 0) {
+           //     finish();
             //}
         }
     };

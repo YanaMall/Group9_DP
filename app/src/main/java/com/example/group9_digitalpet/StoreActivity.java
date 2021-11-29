@@ -20,6 +20,9 @@ public class StoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Snacks = MainActivity.store.getSnackCount();
+        Kibbles = MainActivity.store.getKibbleCount();
+        Steaks = MainActivity.store.getSteakCount();
         setContentView(R.layout.activity_store);
         int storeCurrency = MainActivity.store.getCurrency();
         currencyCount = (TextView) findViewById(R.id.currency);
@@ -28,6 +31,10 @@ public class StoreActivity extends AppCompatActivity {
         kibbleCount = (TextView) findViewById(R.id.kibble);
         steakCount = (TextView) findViewById(R.id.steak);
         Button backToMain = (Button)findViewById(R.id.backToMain);
+
+
+
+
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -43,15 +50,17 @@ public class StoreActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 int currency = MainActivity.store.getCurrency();
+
                 if (currency >= 5) {
                     Snacks++;
                     MainActivity.store.decreaseCurrency(5);
                     snackCount.setText(Integer.toString(Snacks));
                     currency = MainActivity.store.getCurrency();
+                    MainActivity.store.setSnackCount(1);
                     currencyCount.setText(Integer.toString(currency));
                 }
                 else{
-                    ;
+                    Toast.makeText(StoreActivity.this, "insufficient currency", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -67,10 +76,11 @@ public class StoreActivity extends AppCompatActivity {
                     MainActivity.store.decreaseCurrency(10);
                     kibbleCount.setText(Integer.toString(Kibbles));
                     currency = MainActivity.store.getCurrency();
+                    MainActivity.store.setKibbleCount(1);
                     currencyCount.setText(Integer.toString(currency));
                 }
                 else{
-                    ;
+                    Toast.makeText(StoreActivity.this, "insufficient currency", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -86,10 +96,11 @@ public class StoreActivity extends AppCompatActivity {
                     MainActivity.store.decreaseCurrency(15);
                     steakCount.setText(Integer.toString(Steaks));
                     currency = MainActivity.store.getCurrency();
+                    MainActivity.store.setSteakCount(1);
                     currencyCount.setText(Integer.toString(currency));
                 }
                 else{
-                    ;
+                    Toast.makeText(StoreActivity.this, "insufficient currency", Toast.LENGTH_LONG).show();
                 }
             }
         });

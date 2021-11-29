@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         */
         handler.post(runnableCode);
         EditText petName = (EditText)findViewById(R.id.petName);
-        ImageView petView = (ImageView)findViewById(R.id.petView);
+        final ImageView[] petView = {(ImageView) findViewById(R.id.petView)};
         ImageButton dog1 = (ImageButton)findViewById(R.id.imageButton);
 
         dog1.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is beagle
-                petView.setImageResource(R.drawable.beagle);
+                petView[0].setImageResource(R.drawable.beagle);
                 petChoice = R.drawable.beagle;
             }
         });
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is bulldog
-                petView.setImageResource(R.drawable.bulldog);
+                petView[0].setImageResource(R.drawable.bulldog);
                 petChoice = R.drawable.bulldog;
             }
         });
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is chihuahua
-                petView.setImageResource(R.drawable.chihuahua);
+                petView[0].setImageResource(R.drawable.chihuahua);
                 petChoice = R.drawable.chihuahua;
             }
         });
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Chowchow
-                petView.setImageResource(R.drawable.chowchow);
+                petView[0].setImageResource(R.drawable.chowchow);
                 petChoice = R.drawable.chowchow;
             }
         });
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Golden Retriever
-                petView.setImageResource(R.drawable.goldenretriever);
+                petView[0].setImageResource(R.drawable.goldenretriever);
                 petChoice = R.drawable.goldenretriever;
             }
         });
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Husky
-                petView.setImageResource(R.drawable.husky);
+                petView[0].setImageResource(R.drawable.husky);
                 petChoice = R.drawable.husky;
             }
         });
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Poodle
-                petView.setImageResource(R.drawable.poodle);
+                petView[0].setImageResource(R.drawable.poodle);
                 petChoice = R.drawable.poodle;
             }
         });
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Samoyed
-                petView.setImageResource(R.drawable.samoyed);
+                petView[0].setImageResource(R.drawable.samoyed);
                 petChoice = R.drawable.samoyed;
             }
         });
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 //Chosen pet is Shiba
-                petView.setImageResource(R.drawable.shiba);
+                petView[0].setImageResource(R.drawable.shiba);
                 petChoice = R.drawable.shiba;
             }
         });
@@ -144,7 +144,8 @@ public class MainActivity extends AppCompatActivity
                 // The start game button, still need to change to main screen with the same button press
                 pet = new Pet(String.valueOf(petName), 0, 100, 100, 100, 100, 100 , 0 , 1);
                 setContentView(R.layout.activity_main);
-                petView.setImageResource(petChoice);
+                petView[0] = (ImageView)findViewById(R.id.petView);
+                petView[0].setImageResource(petChoice);
 
             }
 

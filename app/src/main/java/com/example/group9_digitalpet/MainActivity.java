@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     private Pet pet;
     private Pedometer pedometer;
     private Log log;
+    public static Store store;
     int numOfWalks;
     Log[] logArray = new Log[numOfWalks];
     public static int petChoice;
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity
                 setContentView(R.layout.activity_main);
                 petView[0] = (ImageView)findViewById(R.id.petView);
                 petView[0].setImageResource(petChoice);
-
+                store = new Store(100, 0, 0, 0);
                 Button shopButton = (Button)findViewById(R.id.shopButton);
                 shopButton.setOnClickListener(new View.OnClickListener() {
                     @Override

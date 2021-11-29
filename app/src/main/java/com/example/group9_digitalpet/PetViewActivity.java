@@ -32,7 +32,6 @@ public class PetViewActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         handler.post(runnableCode);
         EditText petName = (EditText)findViewById(R.id.petName);
         final ImageView petView = (ImageView) findViewById(R.id.petView);

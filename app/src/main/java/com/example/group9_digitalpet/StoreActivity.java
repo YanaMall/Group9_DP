@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StoreActivity extends AppCompatActivity {
     public int Snacks = 0;
@@ -15,10 +16,14 @@ public class StoreActivity extends AppCompatActivity {
     TextView snackCount;
     TextView kibbleCount;
     TextView steakCount;
+    TextView currencyCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+        int storeCurrency = MainActivity.store.getCurrency();
+        currencyCount = (TextView) findViewById(R.id.currency);
+        currencyCount.setText(Integer.toString(storeCurrency));
         snackCount = (TextView) findViewById(R.id.snack);
         kibbleCount = (TextView) findViewById(R.id.kibble);
         steakCount = (TextView) findViewById(R.id.steak);
@@ -37,8 +42,17 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Snacks++;
-                snackCount.setText(Integer.toString(Snacks));
+                int currency = MainActivity.store.getCurrency();
+                if (currency >= 5) {
+                    Snacks++;
+                    MainActivity.store.decreaseCurrency(5);
+                    snackCount.setText(Integer.toString(Snacks));
+                    currency = MainActivity.store.getCurrency();
+                    currencyCount.setText(Integer.toString(currency));
+                }
+                else{
+                    ;
+                }
             }
         });
 

@@ -8,6 +8,8 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +21,10 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".StoreActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".FriendWalk"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <!--

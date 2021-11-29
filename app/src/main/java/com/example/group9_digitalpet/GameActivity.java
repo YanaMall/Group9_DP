@@ -1,5 +1,6 @@
 package com.example.group9_digitalpet;
 import android.view.View;
+import android.hardware.SensorEvent;
 
 public class GameActivity extends Pedometer
 {
@@ -31,16 +32,11 @@ public class GameActivity extends Pedometer
         // Happiness and walking
     }
 
-    public void onStartButtonClicked(View view)
-    {
-        startTime = System.currentTimeMillis();
-    }
-
     public void onEndButtonClicked(View view)
     {
         endTime = System.currentTimeMillis();
         timeElapsed = (endTime - startTime) / 1000;
-        Log newLog  = log.createLog(timeElapsed);
-        pedometer.resetSteps();
+        //Log log  = Log.createLog(timeElapsed);
+        //pedometer.resetSteps();
     }
 }

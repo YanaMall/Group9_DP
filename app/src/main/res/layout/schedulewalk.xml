@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="365dp"
+                android:layout_height="259dp"
+                android:layout_weight="1"
+                android:text="Please pick which friend you'd like to walk with and the date you wish to do so."
+                android:textColor="@color/black"
+                android:textSize="15pt"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="190dp"
+                android:layout_below="@+id/textView"
+                android:layout_weight="1" >
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="102dp"
+                    android:layout_below="@+id/textView"
+                    android:layout_weight="1"
+                    android:text="Ayiana"
+                    android:textColor="@color/black"
+                    android:textSize="12pt"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="102dp"
+                    android:layout_below="@+id/textView"
+                    android:layout_weight="1"
+                    android:text="Tanner"
+                    android:textColor="@color/black"
+                    android:textSize="12pt"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="102dp"
+                    android:layout_below="@+id/textView"
+                    android:layout_weight="1"
+                    android:text="Blake"
+                    android:textColor="@color/black"
+                    android:textSize="12pt"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="102dp"
+                    android:layout_below="@+id/textView"
+                    android:layout_weight="1"
+                    android:text="Braden"
+                    android:textColor="@color/black"
+                    android:textSize="12pt"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <DatePicker
+                android:id="@+id/datePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/schedwalk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Schedule Walk"/>
+
+            <Button
+                android:id="@+id/backToMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back To Main" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -133,7 +133,8 @@ class Pet
         awayTime = time;
     }
 
-    public void setPetName(String petName){
+    public String setPetName(String petName){
         name = petName;
+        return petName;
     }
 }

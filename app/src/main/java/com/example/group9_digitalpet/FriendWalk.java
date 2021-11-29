@@ -31,7 +31,8 @@ public class FriendWalk extends AppCompatActivity
                 RadioButton radioButton =(RadioButton)findViewById(selectedId);
                 CharSequence text = "You have scheduled a walk with " + radioButton.getText() +" on " + datePicker.getDayOfMonth()+"/"+ (datePicker.getMonth() + 1);
                 Toast.makeText(FriendWalk.this, text, Toast.LENGTH_LONG).show();
-                setContentView(R.layout.activity_main);
+                Intent i = new Intent(FriendWalk.this, PetViewActivity.class);
+                startActivity(i);
             }
         });
         Button backToMain = (Button)findViewById(R.id.backToMain);
@@ -39,7 +40,7 @@ public class FriendWalk extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(FriendWalk.this, MainActivity.class);
+                Intent i = new Intent(FriendWalk.this, PetViewActivity.class);
                 startActivity(i);
             }
         });

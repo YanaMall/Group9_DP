@@ -61,8 +61,17 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Kibbles++;
-                kibbleCount.setText(Integer.toString(Kibbles));
+                int currency = MainActivity.store.getCurrency();
+                if (currency >= 10) {
+                    Kibbles++;
+                    MainActivity.store.decreaseCurrency(10);
+                    kibbleCount.setText(Integer.toString(Kibbles));
+                    currency = MainActivity.store.getCurrency();
+                    currencyCount.setText(Integer.toString(currency));
+                }
+                else{
+                    ;
+                }
             }
         });
 
@@ -71,8 +80,17 @@ public class StoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Steaks++;
-                steakCount.setText(Integer.toString(Steaks));
+                int currency = MainActivity.store.getCurrency();
+                if (currency >= 15) {
+                    Steaks++;
+                    MainActivity.store.decreaseCurrency(15);
+                    steakCount.setText(Integer.toString(Steaks));
+                    currency = MainActivity.store.getCurrency();
+                    currencyCount.setText(Integer.toString(currency));
+                }
+                else{
+                    ;
+                }
             }
         });
 

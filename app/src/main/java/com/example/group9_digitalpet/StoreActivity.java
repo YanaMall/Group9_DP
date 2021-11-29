@@ -6,23 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class StoreActivity extends AppCompatActivity {
-    public int Snacks = 0;
-    public int Kibbles = 0;
-    public int Steaks = 0;
+    private int Snacks = MainActivity.store.getSnackCount();
+    private int Kibbles = MainActivity.store.getKibbleCount();
+    private int Steaks = MainActivity.store.getSteakCount();
+    private int petHealth = MainActivity.pet.getPetHealth();
     TextView snackCount;
     TextView kibbleCount;
     TextView steakCount;
     TextView currencyCount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Snacks = MainActivity.store.getSnackCount();
-        Kibbles = MainActivity.store.getKibbleCount();
-        Steaks = MainActivity.store.getSteakCount();
         setContentView(R.layout.activity_store);
         int storeCurrency = MainActivity.store.getCurrency();
         currencyCount = (TextView) findViewById(R.id.currency);
@@ -30,6 +30,11 @@ public class StoreActivity extends AppCompatActivity {
         snackCount = (TextView) findViewById(R.id.snack);
         kibbleCount = (TextView) findViewById(R.id.kibble);
         steakCount = (TextView) findViewById(R.id.steak);
+        snackCount.setText(Integer.toString(Snacks));
+        kibbleCount.setText(Integer.toString(Kibbles));
+        steakCount.setText(Integer.toString(Steaks));
+        ProgressBar healthMeter = (ProgressBar)findViewById(R.id.progressBar);
+        healthMeter.setProgress(MainActivity.pet.getPetHealth());
         Button backToMain = (Button)findViewById(R.id.backToMain);
 
 
@@ -104,8 +109,74 @@ public class StoreActivity extends AppCompatActivity {
                 }
             }
         });
+        Button feedSnack = (Button)findViewById(R.id.button4);
+        feedSnack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (petHealth + 5 <= 100){
+                    if (MainActivity.store.getSnackCount() > 0) {
+                        MainActivity.pet.updateHealth(5);
+                        MainActivity.store.decreaseSnack();
+                        Snacks = MainActivity.store.getSnackCount();
+                        snackCount.setText(Integer.toString(Snacks));
+                        healthMeter.setProgress(MainActivity.pet.getPetHealth());
+                    }
+                    else {
+                        Toast.makeText(StoreActivity.this, "Out of snacks", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Toast.makeText(StoreActivity.this, "Pet is at full health", Toast.LENGTH_LONG).show();
+                }
+                petHealth = MainActivity.pet.getPetHealth();
+            }
+        });
 
+        Button feedKibble = (Button)findViewById(R.id.button5);
+        feedKibble.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (petHealth + 10 <= 100){
+                    if (MainActivity.store.getKibbleCount() > 0) {
+                        MainActivity.pet.updateHealth(10);
+                        MainActivity.store.decreaseKibble();
+                        Kibbles = MainActivity.store.getKibbleCount();
+                        kibbleCount.setText(Integer.toString(Kibbles));
+                        healthMeter.setProgress(MainActivity.pet.getPetHealth());
+                    }
+                    else {
+                        Toast.makeText(StoreActivity.this, "Out of kibble", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Toast.makeText(StoreActivity.this, "Pet is at full health", Toast.LENGTH_LONG).show();
+                }
+                petHealth = MainActivity.pet.getPetHealth();
+            }
+        });
 
+        Button feedSteak = (Button)findViewById(R.id.button6);
+        feedSteak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (petHealth + 15 <= 100){
+                    if (MainActivity.store.getSteakCount() > 0) {
+                        MainActivity.pet.updateHealth(15);
+                        MainActivity.store.decreaseSteak();
+                        Steaks = MainActivity.store.getSteakCount();
+                        steakCount.setText(Integer.toString(Steaks));
+                        healthMeter.setProgress(MainActivity.pet.getPetHealth());
+                    }
+                    else {
+                        Toast.makeText(StoreActivity.this, "out of steak", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else {
+                    Toast.makeText(StoreActivity.this, "Pet is at full health", Toast.LENGTH_LONG).show();
+                }
+                petHealth = MainActivity.pet.getPetHealth();
+            }
+        });
     }
     /*private int HatPrice; // placeholder for the cost of the hat
     private String Hat;

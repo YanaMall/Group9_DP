@@ -49,4 +49,10 @@ public class Store {
         steakCount += newSteak;
     }
 
+    public void decreaseSnack() { snackCount -= 1; }
+
+    public void decreaseKibble() { kibbleCount -= 1; }
+
+    public void decreaseSteak() { steakCount -= 1; }
+
 }

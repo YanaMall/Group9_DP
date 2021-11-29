@@ -22,7 +22,6 @@ public class GameActivity extends Pedometer
         {
             int foodHealthValue = food.getFoodRestoreValue();
             int cost = food.getFoodCost();
-            pet.feedPet(cost);
             pet.updateHealth(foodHealthValue);
         }
     }

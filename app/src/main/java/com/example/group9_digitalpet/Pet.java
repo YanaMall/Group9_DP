@@ -27,10 +27,6 @@ class Pet
     {
         return name;
     }
-    public int getPetHunger()
-    {
-        return hunger;
-    }
     public int getPetHealth()
     {
         return health;
@@ -49,35 +45,12 @@ class Pet
         return health;
     }
 
-    public void feedPet (int foodPoints)
-    {
-        if (foodPoints % 5 == 0 && foodPoints <= 15)
-            updateHunger(foodPoints, true);
-    }
-
     public void updateHealth (int health2)
     {
         health += health2;
-        health = Math.min(health, maxHealth);
-        health = Math.max(health, 0);
     }
 
-    public void updateHunger (int food, boolean fed)
-    {
-        hunger += food;
-        hunger = Math.min(hunger, maxHunger);
 
-        if (hunger <= 0)
-        {
-            hunger = 0;
-            updateHealth(food);
-        }
-        if (fed)
-        {
-            happiness(5, false);
-            updateHealth(5);
-        }
-    }
 
     public void customize ()
     {
@@ -127,7 +100,6 @@ class Pet
 
         if(timeIncrementsAway > 0){
             //updateHealth(statDecrease, false);
-            updateHunger(statDecrease, false);
             happiness(statDecrease, false);
         }
         awayTime = time;

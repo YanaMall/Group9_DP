@@ -38,6 +38,9 @@
             android:exported="false"
             android:label="@string/title_activity_maps" /> <!-- got a warning about allow backup -->
         <activity
+            android:name=".PetViewActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

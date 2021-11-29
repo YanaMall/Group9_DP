@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity
     private Log log;
     int numOfWalks;
     Log[] logArray = new Log[numOfWalks];
-
+    int petChoice;
     //handler will allow for the "timer" to run and decrease health/happiness
     Handler handler = new Handler();
 
@@ -43,12 +43,14 @@ public class MainActivity extends AppCompatActivity
         EditText petName = (EditText)findViewById(R.id.petName);
         ImageView petView = (ImageView)findViewById(R.id.petView);
         ImageButton dog1 = (ImageButton)findViewById(R.id.imageButton);
+
         dog1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 //Chosen pet is beagle
                 petView.setImageResource(R.drawable.beagle);
+                petChoice = R.drawable.beagle;
             }
         });
         ImageButton dog2 = (ImageButton)findViewById(R.id.imageButton2);
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is bulldog
                 petView.setImageResource(R.drawable.bulldog);
+                petChoice = R.drawable.bulldog;
             }
         });
         ImageButton dog3 = (ImageButton)findViewById(R.id.imageButton3);
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is chihuahua
                 petView.setImageResource(R.drawable.chihuahua);
+                petChoice = R.drawable.chihuahua;
             }
         });
         ImageButton dog4 = (ImageButton)findViewById(R.id.imageButton4);
@@ -76,6 +80,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Chowchow
                 petView.setImageResource(R.drawable.chowchow);
+                petChoice = R.drawable.chowchow;
             }
         });
         ImageButton dog5 = (ImageButton)findViewById(R.id.imageButton5);
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Golden Retriever
                 petView.setImageResource(R.drawable.goldenretriever);
+                petChoice = R.drawable.goldenretriever;
             }
         });
         ImageButton dog6 = (ImageButton)findViewById(R.id.imageButton6);
@@ -94,6 +100,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Husky
                 petView.setImageResource(R.drawable.husky);
+                petChoice = R.drawable.husky;
             }
         });
         ImageButton dog7 = (ImageButton)findViewById(R.id.imageButton7);
@@ -103,6 +110,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Poodle
                 petView.setImageResource(R.drawable.poodle);
+                petChoice = R.drawable.poodle;
             }
         });
         ImageButton dog8 = (ImageButton)findViewById(R.id.imageButton8);
@@ -112,6 +120,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Samoyed
                 petView.setImageResource(R.drawable.samoyed);
+                petChoice = R.drawable.samoyed;
             }
         });
         ImageButton dog9 = (ImageButton)findViewById(R.id.imageButton9);
@@ -121,6 +130,7 @@ public class MainActivity extends AppCompatActivity
             {
                 //Chosen pet is Shiba
                 petView.setImageResource(R.drawable.shiba);
+                petChoice = R.drawable.shiba;
             }
         });
 
@@ -134,9 +144,13 @@ public class MainActivity extends AppCompatActivity
                 // The start game button, still need to change to main screen with the same button press
                 pet = new Pet(String.valueOf(petName), 0, 100, 100, 100, 100, 100 , 0 , 1);
                 setContentView(R.layout.activity_main);
+                petView.setImageResource(petChoice);
 
             }
+
         });
+
+
     }
 
 

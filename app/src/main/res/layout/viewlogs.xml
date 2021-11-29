@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    android:id="@+id/logTable">
+
+    <TableRow>
+        <!--the first row will work as the Column Headers-->
+        <TextView
+            android:layout_column="1"
+            android:text="Log Number"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="Date"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="Steps Taken"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="Distance Traveled(km)"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="Duration(min)"
+            android:padding="3dip"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="1"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="29/11"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="300"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="1.0"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="20"
+            android:padding="3dip"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="2"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="29/11"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="300"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="1.0"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="20"
+            android:padding="3dip"/>
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="3"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="29/11"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="300"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="1.0"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="20"
+            android:padding="3dip"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="4"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="29/11"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="300"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="1.0"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="20"
+            android:padding="3dip"/>
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+        <TextView
+            android:layout_column="1"
+            android:text="5"
+            android:padding="3dip" />
+        <TextView
+            android:layout_column="1"
+            android:text="29/11"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="300"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="1.0"
+            android:padding="3dip"/>
+        <TextView
+            android:layout_column="1"
+            android:text="20"
+            android:padding="3dip"/>
+    </TableRow>
+</TableLayout>

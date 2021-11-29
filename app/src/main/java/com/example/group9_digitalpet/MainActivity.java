@@ -152,7 +152,15 @@ public class MainActivity extends AppCompatActivity
                         startActivity(intent2);
                     }
                 });
-
+                //Button labeled to view logs
+                Button viewLogs = (Button) findViewById(R.id.viewlogs);
+                viewLogs.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent3 = new Intent(MainActivity.this, Log.class);
+                        startActivity(intent3);
+                    }
+                });
             }
 
             private Runnable runnableCode = new Runnable() {

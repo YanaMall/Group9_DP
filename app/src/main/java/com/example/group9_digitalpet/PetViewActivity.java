@@ -38,6 +38,9 @@ public class PetViewActivity extends AppCompatActivity
         pet = MainActivity.pet;
         petView.setImageResource(MainActivity.petChoice);
 
+        TextView petName = (TextView)findViewById(R.id.petNameLabel);
+        petName.setText(pet.getPetName());
+
         Button shopButton = (Button)findViewById(R.id.shopButton);
         shopButton.setOnClickListener(new View.OnClickListener() {
             @Override

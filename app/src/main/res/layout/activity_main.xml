@@ -111,4 +111,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/petNameLabel"
+        android:layout_width="174dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="#A4101010"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Pet Name"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/petView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/petView"
+        app:layout_constraintTop_toBottomOf="@+id/petView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

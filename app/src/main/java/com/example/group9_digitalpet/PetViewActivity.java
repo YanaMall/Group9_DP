@@ -2,6 +2,10 @@ package com.example.group9_digitalpet;
 
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Vibrator;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class PetViewActivity extends AppCompatActivity
+public class PetViewActivity extends AppCompatActivity implements SensorEventListener
 {
+    // For the pedometer
+    private TextView tv_StepCounter;
+    private SensorManager sensorManager;
+    private boolean runningCounter;
+    private Sensor mStepCounter;
+    int stepCount = 0;
+
     private GameActivity gameactivity;
     private Pet pet;
     private Pedometer pedometer;
@@ -32,6 +43,21 @@ public class PetViewActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Pedometer
+        tv_StepCounter = findViewById(R.id.tv_StepCounter);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null)
+        {
+            mStepCounter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+            runningCounter = true;
+        }else{
+            tv_StepCounter.setText("Counter Sensor is not present");
+            runningCounter = false;
+        }
+
         handler.post(runnableCode);
         final ImageView petView = (ImageView) findViewById(R.id.petView);
 
@@ -72,6 +98,36 @@ public class PetViewActivity extends AppCompatActivity
         });
     }
 
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if(sensorEvent.sensor == mStepCounter) {
+            stepCount = (int) sensorEvent.values[0];
+            tv_StepCounter.setText(String.valueOf(stepCount));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null)
+        {
+            sensorManager.registerListener(this, mStepCounter, SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER) != null)
+        {
+            sensorManager.unregisterListener(this, mStepCounter);
+        }
+    }
 
     private Runnable runnableCode = new Runnable() {
         @Override

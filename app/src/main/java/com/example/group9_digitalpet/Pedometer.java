@@ -24,7 +24,7 @@ public class Pedometer extends AppCompatActivity implements SensorEventListener
     {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_main );
-        tv_steps = (TextView) findViewById ( R.id.tv_steps );
+       // tv_steps = (TextView) findViewById ( R.id.tv_steps );
 
         //viewLog(); A button to view previous logs?
         resetSteps();

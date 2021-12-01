@@ -1,23 +1,29 @@
 package com.example.group9_digitalpet;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
+import android.widget.TextView;
+import android.hardware.SensorManager;
+import android.hardware.Sensor;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class MainActivity extends AppCompatActivity
 {
     private GameActivity gameactivity;
     public static Pet pet;
-    private Pedometer pedometer;
     private Log log;
     public static Store store;
     int numOfWalks;
@@ -148,4 +154,7 @@ public class MainActivity extends AppCompatActivity
                 }
             };
         });
-    }}
+    }
+
+
+}
